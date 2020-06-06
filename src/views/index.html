@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% set pageId = "page-home" %}
+
+
+    {% block styles %}
+        <link rel="stylesheet" href="styles/home.css">
+        <link rel="stylesheet" href="styles/modal.css">
+    {% endblock styles %}
+    
+    
+    {% block content %}
+    <div class="content">
+        <header>
+            <img src="/icones/logo_locall.svg" alt="Logomarca">
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">saiba mais</a></li>
+                <li><a href="#">covid-19</a></li>
+                <li><a href="#">quero ajudar</a></li>
+                <li><a href="#">quero comprar</a></li>
+            </ul>
+            <div class="content-a">
+            <a href="/create-point">
+                <span></span>
+                Cadastre seu condomínio</a>
+            </div>
+
+        </header>
+        <main>
+            <h1>A rede solidária no seu condomínio</h1>
+
+            <p>Compre produtos feitos pelos seus vizinhos e também
+                faça compras para os que não podem sair de casa</p>
+            <a href="#"><span></span><strong>Pesquisar condomínio</strong></a>
+            
+        </main>
+
+        
+    </div> 
+    {% endblock content %}
+    
+
+   
+
+
+    
+    {% block modal %}
+        {% include "partials/modal.html" %}
+    {% endblock modal %}
+
+    {% block scripts %}
+      <script src="/script/index.js"></script>
+    {% endblock scripts %}
+
+

@@ -1,0 +1,126 @@
+{% extends "layout.html" %}
+
+{% set pageId = "page-create-point" %}
+
+{% block title %}
+<title>Novo cadastro</title>
+{% endblock title %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="styles/create-point.css">
+<link rel="stylesheet" href="styles/modal.css">
+{% endblock styles %}
+
+
+{% block content %}
+
+{% include "partials/page-header.html" %}
+
+    <form action="/savepoint" method="POST">
+        <h1>Cadastrar novo condomínio</h1>
+
+        <fieldset>
+            <legend>
+                <h2>Dados do condomínio</h2>
+            </legend>
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="name">Nome do condomínio</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="field">
+                    <label for="name">Imagem do condomínio</label>
+                    <input type="url" name="image" required>
+                </div>
+            </div>
+
+            
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="address">Endereço</label>
+                    <input type="text" name="address" required>
+                </div>
+                <div class="field">
+                    <label for="address2">Número</label>
+                    <input type="text" name="address2" required>
+                </div>
+            </div>
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="state">Estado</label>
+                    <select name="uf" required>
+                        <option value="">Selecione o estado</option>
+                    </select>
+
+                    <input type="hidden" name="state">
+                </div>
+                <div class="field">
+                    <label for="city">Cidade</label>
+                    <select name="city" disabled required>
+                        <option value="">Selecione a cidade</option>
+                    </select>
+                </div>
+            </div>
+
+        </fieldset>
+        <fieldset>
+            <legend>
+                <h2>O que você faz ou procura?</h2>
+                <span>Selecione um ou mais itens abaixo</span>
+            </legend>
+
+            <div class="items-grid">
+                <li data-id="Lâmpadas">
+                    <img src="/icones/lampadas.svg" alt="Lâmpadas">
+                    <span>Lâmpadas</span>
+                </li>
+
+                <li data-id="Pilhas e baterias">
+                    <img src="/icones/baterias.svg" alt="Pilhas">
+                    <span>Pilhas e baterias</span>
+                </li>
+
+                <li data-id="Papéis e Papelão">
+                    <img src="/icones/papeis-papelao.svg" alt="Papelão">
+                    <span>Papéis e Papelão</span>
+                </li>
+
+                <li data-id="Resíduos Eletrónicos">
+                    <img src="/icones/eletronicos.svg" alt="Eletrónicos">
+                    <span>Resíduos Eletrónicos</span>
+                </li>
+
+                <li data-id="Resíduos Orgânicos">
+                    <img src="/icones/organicos.svg" alt="Orgânicos">
+                    <span>Resíduos Orgânicos</span>
+                </li>
+
+                <li data-id="Óleo de Cozinha">
+                    <img src="/icones/oleo.svg" alt="Óleo">
+                    <span>Óleo de Cozinha</span>
+                </li>
+
+
+            </div>
+            <input type="hidden" name="items" value>
+        </fieldset>
+        <button type="submit">Cadastrar condomínio</button>
+    </form>
+ 
+
+{% endblock content %}
+
+{% block modal %}
+    {% if saved %}
+        {% include "partials/point-created.html" %}
+    {% endif %} 
+{% endblock modal %}
+
+
+{% block scripts %}
+<script src="/script/create-point.js"></script>
+{% endblock scripts %}
